@@ -6,9 +6,9 @@ Here is my custom configuration for working computer. Since I mostly use a Mac, 
 
 ### On a mac
 
-Run the `macos-init.sh` script to prepare the environment.
+Run the `make macos` command to prepare the environment.
 All the corresponding software will be installed.
 
 ### Custom configuration
 
-Run the `machine-init.sh` script which will configure the new computer with dot files. It'll also load the SSH keys and the GPG keyring.
+Run the `make init` command which will configure the new computer with dot files. It'll also load the SSH keys and the GPG keyring.
