@@ -41,3 +41,12 @@ brew cask install keka
 # Install specific fonts
 brew tap homebrew/cask-fonts
 brew cask install font-source-code-pro
+
+
+## Mac OS specific configuration
+
+# Enable "Tap to click" with the Magic Mouse / Magic Trackpad
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+sudo defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+sudo defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
