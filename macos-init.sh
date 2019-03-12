@@ -20,6 +20,8 @@ brew install gmp
 
 # Install brew Caskroom applications
 brew cask
+brew cask install iterm2
+brew cask install docker
 brew cask install keybase
 brew cask install vlc
 brew cask install java
