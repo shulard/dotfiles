@@ -27,8 +27,7 @@ code --install-extension dbaeumer.vscode-eslint
 code --install-extension DotJoshJohnson.xml
 code --install-extension eamodio.gitlens
 code --install-extension felixfbecker.php-debug
-code --install-extension felixfbecker.php-intellisense
-code --install-extension felixfbecker.php-pack
+code --install-extension bmewburn.vscode-intelephense-client
 code --install-extension glen-84.sass-lint
 code --install-extension ikappas.phpcs
 code --install-extension marcostazi.VS-code-vagrantfile
@@ -40,3 +39,6 @@ code --install-extension PeterJausovec.vscode-docker
 code --install-extension robinbentley.sass-indented
 code --install-extension whatwedo.twig
 code --install-extension wholroyd.jinja
+code --install-extension lextudio.restructuredtext
+code --install-extension calsmurf2904.vscode-phpstan
+code --install-extension coolbear.systemd-unit-file
