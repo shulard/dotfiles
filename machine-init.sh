@@ -1,16 +1,9 @@
-# Decrypt files
-openssl enc -d -aes256 -in applications.enc -out applications.zip
-openssl enc -d -aes256 -in dots.enc -out dots.zip
-
-# Unzip files
-unzip -q applications.zip && rm -rf applications.zip
-unzip -q dots.zip && rm -rf dots.zip
-
 # Install OhMyZsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Copy all the configurations
 cp -R dots/.* ~
+cp -R secrets/.* ~
 
 # Initialize SSH keys
 ssh-add -K ~/.ssh/ai_rsa ~/.ssh/github_rsa ~/.ssh/gitlab_rsa ~/.ssh/id_rsa ~/.ssh/bitbucket_rsa
