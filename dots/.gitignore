@@ -1,0 +1,11 @@
+#System files
+*~
+.DS_Store
+
+#IDE project files
+*.esproj
+nbproject
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace

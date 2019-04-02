@@ -1,0 +1,83 @@
+[user]
+	name = Stéphane HULARD
+	email = s.hulard@chstudio.fr
+	signingkey = 38A74EAC
+[color]
+  ui = auto
+[alias]
+  st = status
+  ci = commit
+  oops = commit --amend --no-edit
+
+  plog = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
+  tlog = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  rank = shortlog -sn --no-merges
+  bdm = "!git branch --merged | grep -v '*' | xargs -n 1 git branch -d"
+
+  mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+[core]
+	excludesfile = ~/.gitignore
+  pager = cat
+  #
+  # Out of luck: on Windows w/o msysGit? You may have Notepad++…
+  # editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
+  #
+  # If you want to use Sublime Text 2's subl wrapper:
+  # editor = subl -w
+  #
+  whitespace = -trailing-space
+	precomposeunicode = false
+[diff]
+  mnemonicPrefix = true
+  renames = true
+  wordRegex = .
+[fetch]
+  recurseSubmodules = on-demand
+[grep]
+  extendedRegexp = true
+[log]
+  abbrevCommit = true
+[merge]
+  conflictStyle = diff3
+[mergetool]
+  keepBackup = false
+  keepTemporaries = false
+  prompt = false
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[pull]
+  # This is GREAT… when you know what you're doing and are careful
+  # not to pull --no-rebase over a local line containing a true merge.
+  # rebase = true
+  # WARNING! This option, which does away with the one gotcha of
+  # auto-rebasing on pulls, is only available from 1.8.5 onwards.
+  rebase = preserve
+[push]
+  default = upstream
+[rerere]
+  # If, like me, you like rerere, decomment these
+  # autoupdate = true
+  # enabled = true
+[status]
+  submoduleSummary = true
+  showUntrackedFiles = all
+[color "branch"]
+  upstream = cyan
+[tag]
+  sort = version:refname
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[init]
+	templatedir = ~/.git_template

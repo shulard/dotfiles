@@ -1,0 +1,24 @@
+#!/bin/sh
+
+exit=0
+
+# PHP Code Sniffer pre-commit hook
+if [ -f vendor/bin/phpcs ] && [ -f phpcs.xml ]
+then
+    for file in $(git diff --cached --name-only --diff-filter=d)
+    do
+        case "$file" in
+            *.blade.php )
+            ;;
+            *.php )
+                ./vendor/bin/phpcs --standard=phpcs.xml -q $file
+                status=$?
+                if [ $status -ne 0 ]; then
+                    exit=$status
+                fi
+            ;;
+        esac
+    done
+fi
+
+exit $exit
